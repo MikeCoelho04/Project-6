@@ -1,0 +1,34 @@
+<svg xmlns="http://www.w3.org/2000/svg" width="64" height="64" viewBox="0 0 64 64" role="img" aria-label="FocusTube favicon (Light Premium)">
+  <defs>
+    <!-- Light Premium gradient (accent + soft green) -->
+    <linearGradient id="ftGrad" x1="0" y1="0" x2="1" y2="1">
+      <stop offset="0%" stop-color="#4f46e5"/>
+      <stop offset="100%" stop-color="#16a34a"/>
+    </linearGradient>
+
+    <!-- subtle highlight for depth on light background -->
+    <linearGradient id="shine" x1="0" y1="0" x2="0" y2="1">
+      <stop offset="0%" stop-color="rgba(255,255,255,0.65)"/>
+      <stop offset="100%" stop-color="rgba(255,255,255,0)"/>
+    </linearGradient>
+  </defs>
+
+  <!-- Outer tile (light premium card) -->
+  <rect x="3" y="3" width="58" height="58" rx="16"
+        fill="rgba(255,255,255,0.85)"
+        stroke="rgba(10,12,20,0.12)"/>
+
+  <!-- Inner gradient -->
+  <rect x="12" y="12" width="40" height="40" rx="13"
+        fill="url(#ftGrad)" opacity="0.95"/>
+
+  <!-- Soft shine -->
+  <path d="M14 18 C22 10, 34 10, 50 18 L50 24 C34 16, 22 16, 14 24 Z"
+        fill="url(#shine)" opacity="0.55"/>
+
+  <!-- Play -->
+  <path d="M29 24 L41 32 L29 40 Z" fill="#0e1320" opacity="0.92"/>
+
+  <!-- Focus dot -->
+  <circle cx="46.5" cy="18.5" r="3" fill="#16a34a" opacity="0.95"/>
+</svg>
