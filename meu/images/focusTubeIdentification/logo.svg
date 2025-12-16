@@ -3,40 +3,46 @@
      height="120"
      viewBox="0 0 380 120"
      role="img"
-     aria-label="FocusTube logo (Light Premium)">
+     aria-label="FocusTube logo (Dark Premium)">
   <defs>
+    <!-- Accent gradient -->
     <linearGradient id="ftGrad" x1="0" y1="0" x2="1" y2="1">
-      <stop offset="0%" stop-color="#4f46e5"/>
-      <stop offset="100%" stop-color="#16a34a"/>
+      <stop offset="0%" stop-color="#8b5cf6"/>
+      <stop offset="100%" stop-color="#22d3ee"/>
     </linearGradient>
 
+    <!-- subtle shine -->
     <linearGradient id="shine" x1="0" y1="0" x2="0" y2="1">
-      <stop offset="0%" stop-color="rgba(255,255,255,0.65)"/>
+      <stop offset="0%" stop-color="rgba(255,255,255,0.18)"/>
       <stop offset="100%" stop-color="rgba(255,255,255,0)"/>
     </linearGradient>
 
-    <filter id="softShadow" x="-20%" y="-20%" width="140%" height="140%">
-      <feDropShadow dx="0" dy="10" stdDeviation="12" flood-color="#101828" flood-opacity="0.14"/>
+    <!-- dark shadow -->
+    <filter id="softShadow" x="-30%" y="-30%" width="160%" height="160%">
+      <feDropShadow dx="0" dy="18" stdDeviation="24"
+        flood-color="#000000" flood-opacity="0.55"/>
     </filter>
   </defs>
 
   <!-- Icon -->
   <g transform="translate(18,18)" filter="url(#softShadow)">
-    <rect x="0" y="0" width="84" height="84" rx="22"
-          fill="rgba(255,255,255,0.90)"
-          stroke="rgba(10,12,20,0.12)"/>
+    <rect x="0" y="0" width="84" height="84" rx="24"
+          fill="#111520"
+          stroke="rgba(255,255,255,0.08)"/>
     <rect x="12" y="12" width="60" height="60" rx="18"
           fill="url(#ftGrad)" opacity="0.95"/>
 
-    <!-- subtle shine -->
+    <!-- shine -->
     <path d="M14 20 C26 10, 46 10, 70 20 L70 28 C46 18, 26 18, 14 28 Z"
-          fill="url(#shine)" opacity="0.55"/>
+          fill="url(#shine)"/>
 
     <!-- Play triangle -->
-    <path d="M40 30 L58 42 L40 54 Z" fill="#0e1320" opacity="0.92"/>
+    <path d="M40 30 L58 42 L40 54 Z"
+          fill="#e9ecf2" opacity="0.95"/>
 
-    <!-- Small focus dot -->
-    <circle cx="62" cy="22" r="4" fill="#16a34a" opacity="0.95"/>
+    <!-- Focus dot -->
+    <circle cx="62" cy="22" r="4"
+            fill="#22d3ee" opacity="0.95"/>
   </g>
 
   <!-- Wordmark -->
@@ -44,16 +50,19 @@
     <text x="0" y="38"
       font-family="system-ui, -apple-system, Segoe UI, Roboto, Arial, sans-serif"
       font-size="44" font-weight="800" letter-spacing="-0.8"
-      fill="#0e1320">Focus</text>
+      fill="#e9ecf2">Focus</text>
 
     <text x="122" y="38"
       font-family="system-ui, -apple-system, Segoe UI, Roboto, Arial, sans-serif"
       font-size="44" font-weight="800" letter-spacing="-0.8"
-      fill="#0e1320" opacity="0.92">Tube</text>
+      fill="#e9ecf2" opacity="0.9">Tube</text>
 
     <!-- underline accent -->
     <path d="M2 54 C52 72, 160 72, 210 54"
-          fill="none" stroke="url(#ftGrad)" stroke-width="5"
-          stroke-linecap="round" opacity="0.95"/>
+          fill="none"
+          stroke="url(#ftGrad)"
+          stroke-width="5"
+          stroke-linecap="round"
+          opacity="0.95"/>
   </g>
 </svg>

@@ -1,0 +1,299 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+
+  <!-- Meta tags -->
+
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+  <!-- Title & Favicon -->
+
+  <title>FocusTube</title>
+  <link rel="icon" tyoe="image/svg" href="images/focusTubeIdentification/favicon.svg">
+
+  <!-- Styles Sheets -->
+
+  <link rel="stylesheet" href="css/index.css">
+
+</head>
+<body>
+
+  <div class="app">
+
+    <!-- Side Bar -->
+
+    <aside class="sidebar">
+
+      <div class="logo-container">
+        <img src="images/focusTubeIdentification/logo.svg" alt="Focus Tube Logo">
+      </div>
+
+      <nav>
+
+        <button class="nav-item active">
+          <span>🏠</span>
+          <span> Home</span>
+        </button>
+
+        <button class="nav-item">
+          <span>🎓</span>
+          <span>Learn</span>
+        </button>
+
+        <button class="nav-item">
+          <span>🎮</span>
+          <span>Challenges</span>
+        </button>
+
+        <button class="nav-item">
+          <span>📊</span>
+          <span>Progress</span>
+        </button>
+
+        <button class="nav-item">
+          <span>❤️</span>
+          <span>Saved</span>
+        </button>
+
+      </nav>
+
+      <div class="sidebar-bottom">
+
+        <div class="mini-card">
+
+          <h4>Feed objective</h4>
+
+          <div>
+            <button class="objective active">Learn</button>
+            <button class="objective">Entertain</button>
+            <button class="objective">Create</button>
+          </div>
+
+        </div>
+
+        <div class="profile-card">
+
+          <span>MC</span>
+
+          <div class="profile-text">
+            <h2>Miguel</h2>
+            <span>Level 1 • 0 XP</span>
+          </div>
+
+        </div>
+
+      </div>
+
+    </aside>
+
+    <!-- Main -->
+
+    <main>
+
+      <!-- Top Bar -->
+
+      <header class="top-bar">
+
+        <div class="search-bar-container">
+
+          <span class="search-icon">⌕</span>
+          <input type="text" name="" id="search-text" placeholder="Search for videos, tags, or creators...">
+          <kbd class="kbd">Ctrl</kbd>
+          <kbd class="kbd">K</kbd>
+
+        </div>
+
+        <div>
+          <button class="btn ghost">🎲 Random</button>
+          <button class="btn">+ Create</button>
+        </div>
+
+      </header>
+
+      <!-- Video Area -->
+
+      <section id="view">
+
+        <div class="view-header">
+
+          <div>
+            <h4 class="view-title">Entertain • Feed</h4>
+            <p class="view-description">Light content and quick discoveries. Use search to filter. (Tip: Ctrl+K)</p>
+          </div>
+
+          <div>
+            <div class="pill">Objective:<strong>To entertain</strong></div>
+            <div class="pill">Saved:<strong>0</strong></div>
+            <div class="pill">Level:<strong>1</strong></div>
+          </div>
+
+        </div>
+
+        <div id="video-container">
+
+        </div>
+
+      </section>
+
+    </main>
+
+  </div>
+
+    <!-- 
+
+    POP UPS Not shown by default!
+
+    -->
+
+    <section id="video-modal">
+
+      <div class="video-modal-container">
+
+        <div class="video-modal-header">
+
+          <div class="video-modal-title">
+
+            <span class="pill">Entertain</span>
+            <h2 id="video-modal-title">Top 7 easter eggs de UI que ninguém nota</h2>
+            <p id="video-modal-channel">by Pixel Pop • Entreter • Iniciante</p>
+
+          </div>
+
+          <div class="video-modal-actions">
+            <button>♡</button>
+            <button onclick="closeVideoModal()">✕</button>
+          </div>
+
+        </div>
+
+        <div class="video-modal-body">
+
+          <div class="video-player">
+            <iframe
+              id="yt-iframe"
+              class="yt-iframe"
+              title="YouTube video player"
+              frameborder="0"
+              allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share"
+              allowfullscreen>
+            </iframe>
+          </div>
+
+          <div class="video-side-panel">
+
+            <div class="video-side-panel-tabs">
+
+              <button class="panel-tab active">🧠 Interactive</button>
+              <button class="panel-tab">📝 Notes</button>
+              <button class="panel-tab">💬 Discussion</button>
+
+            </div>
+
+            <div id="interactive-panel" data="interactive">
+
+              <div class="card-text">
+
+                <h3>Self-assessment</h3>
+                <div class="star-avaliation">
+                  <button class="star-button">⭐</button>
+                  <button class="star-button">⭐⭐</button>
+                  <button class="star-button">⭐⭐⭐</button>
+                  <button class="star-button">⭐⭐⭐⭐</button>
+                  <button class="star-button active">⭐⭐⭐⭐⭐</button>
+                </div>
+                <div></div>
+                <p>Use this to track your personal progress.</p>
+
+              </div>
+
+              <div class="quiz">
+
+              </div>
+
+            </div>
+
+            <!-- <div id="notes-panel" data="notes">
+
+              <div class="card-text">
+
+                <h3>Self-assessment</h3>
+                <div class="star-avaliation">
+                  <button class="star-button">⭐</button>
+                  <button class="star-button">⭐⭐</button>
+                  <button class="star-button">⭐⭐⭐</button>
+                  <button class="star-button">⭐⭐⭐⭐</button>
+                  <button class="star-button active">⭐⭐⭐⭐⭐</button>
+                </div>
+                <div></div>
+                <p>Use this to track your personal progress.</p>
+
+              </div>
+
+              <div class="quiz">
+
+              </div>
+
+            </div>
+
+            <div id="discussion-panel" data="discussion">
+
+              <div class="card-text">
+
+                <h3>Self-assessment</h3>
+                <div class="star-avaliation">
+                  <button class="star-button">⭐</button>
+                  <button class="star-button">⭐⭐</button>
+                  <button class="star-button">⭐⭐⭐</button>
+                  <button class="star-button">⭐⭐⭐⭐</button>
+                  <button class="star-button active">⭐⭐⭐⭐⭐</button>
+                </div>
+                <div></div>
+                <p>Use this to track your personal progress.</p>
+
+              </div>
+
+              <div class="quiz">
+
+              </div>
+
+            </div> -->
+
+          </div>
+
+        </div>
+
+        <div class="video-modal-footer">
+
+          <div class="left-side">
+
+            <span class="chip">#design</span>
+            <span class="chip">#curiosity</span>
+            <span class="chip">#ui</span>
+
+          </div>
+
+          <div class="right-side">
+
+            <span class="chip">1xp . teste</span>
+
+          </div>
+
+        </div>
+
+      </div>
+
+    </section>
+
+    <!-- Scripts -->
+
+    <!-- Font Awesome (For some icons used) -->
+
+  <script src="https://kit.fontawesome.com/b957a6364d.js" crossorigin="anonymous"></script>
+
+    <!-- Own Scripts -->
+
+  <script src="index.js" type="module"></script>
+
+</body>
+</html>

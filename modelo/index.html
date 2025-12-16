@@ -1,0 +1,193 @@
+<!doctype html>
+<html lang="pt-PT">
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width,initial-scale=1" />
+  <title>VIDA • Video, Ideias, Descoberta e Aprendizagem</title>
+  <link rel="stylesheet" href="style.css" />
+</head>
+<body>
+  <div class="app">
+    <!-- Sidebar -->
+    <aside class="sidebar">
+      <div class="brand">
+        <div class="logo">V</div>
+        <div class="brandText">
+          <div class="brandName">VIDA</div>
+          <div class="brandTag">vídeo com progresso</div>
+        </div>
+      </div>
+
+      <nav class="nav">
+        <button class="navItem active" data-route="home">
+          <span class="navIcon">🏠</span><span>Início</span>
+        </button>
+        <button class="navItem" data-route="learn">
+          <span class="navIcon">🎓</span><span>Aprender</span>
+        </button>
+        <button class="navItem" data-route="challenges">
+          <span class="navIcon">🎮</span><span>Desafios</span>
+        </button>
+        <button class="navItem" data-route="progress">
+          <span class="navIcon">📊</span><span>Progresso</span>
+        </button>
+        <button class="navItem" data-route="saved">
+          <span class="navIcon">❤️</span><span>Guardados</span>
+        </button>
+      </nav>
+
+      <div class="sidebarFooter">
+        <div class="miniCard">
+          <div class="miniTitle">Objetivo do feed</div>
+          <div class="segmented" role="tablist" aria-label="Objetivo do feed">
+            <button class="seg active" data-goal="learn" role="tab">Aprender</button>
+            <button class="seg" data-goal="fun" role="tab">Entreter</button>
+            <button class="seg" data-goal="create" role="tab">Criar</button>
+          </div>
+          <div class="miniHint">Isto muda recomendações + UI.</div>
+        </div>
+
+        <div class="profilePill">
+          <div class="avatar" aria-hidden="true">MC</div>
+          <div class="pillText">
+            <div class="pillName">Miguel</div>
+            <div class="pillMeta"><span id="pillLevel">Nível 1</span> • <span id="pillXP">0 XP</span></div>
+          </div>
+        </div>
+      </div>
+    </aside>
+
+    <!-- Main -->
+    <main class="main">
+      <!-- Topbar -->
+      <header class="topbar">
+        <div class="searchWrap">
+          <span class="searchIcon">⌕</span>
+          <input id="search" class="search" placeholder="Pesquisar vídeos, tags ou criadores..." autocomplete="off" />
+          <kbd class="kbd">Ctrl</kbd><kbd class="kbd">K</kbd>
+        </div>
+
+        <div class="topActions">
+          <button class="btn ghost" id="btnRandom">🎲 Aleatório</button>
+          <button class="btn" id="btnCreate">＋ Criar</button>
+        </div>
+      </header>
+
+      <!-- Route content -->
+      <section id="view" class="view"></section>
+    </main>
+  </div>
+
+  <!-- Video Modal -->
+  <div class="modal" id="videoModal" aria-hidden="true">
+    <div class="modalBackdrop" data-close="1"></div>
+    <div class="modalCard" role="dialog" aria-modal="true" aria-label="Reprodutor de vídeo">
+      <div class="modalHeader">
+        <div class="modalTitle">
+          <div class="pill" id="videoPill">Aprender</div>
+          <h2 id="videoTitle">Vídeo</h2>
+          <div class="metaLine" id="videoMeta">—</div>
+        </div>
+        <div class="modalHeaderActions">
+          <button class="iconBtn" id="btnSave" title="Guardar">♡</button>
+          <button class="iconBtn" data-close="1" title="Fechar">✕</button>
+        </div>
+      </div>
+
+      <div class="modalBody">
+        <div class="player">
+          <div class="fakeVideo" id="fakeVideo">
+            <div class="videoOverlay">
+              <div class="timeRow">
+                <span id="timeLabel">0:00</span>
+                <span class="dot"></span>
+                <span id="durationLabel">0:00</span>
+              </div>
+              <div class="bigTitle" id="videoBigTitle">VIDA Player</div>
+              <div class="subTitle">Demo: “camadas interativas” por timestamp</div>
+            </div>
+          </div>
+
+          <div class="playerControls">
+            <button class="btn" id="btnPlay">▶ Reproduzir</button>
+            <button class="btn ghost" id="btnRewind">↺ 10s</button>
+            <button class="btn ghost" id="btnForward">↻ 10s</button>
+            <div class="progressWrap">
+              <input id="seek" type="range" min="0" max="100" value="0" />
+              <div class="progressHints" id="progressHints"></div>
+            </div>
+          </div>
+        </div>
+
+        <aside class="sidePanel">
+          <div class="tabs">
+            <button class="tab active" data-tab="layer">🧠 Interativo</button>
+            <button class="tab" data-tab="notes">📝 Notas</button>
+            <button class="tab" data-tab="comments">💬 Discussão</button>
+          </div>
+
+          <div class="panel" id="panelLayer"></div>
+          <div class="panel hidden" id="panelNotes"></div>
+          <div class="panel hidden" id="panelComments"></div>
+        </aside>
+      </div>
+
+      <div class="modalFooter">
+        <div class="footerLeft">
+          <div class="chipRow" id="tagRow"></div>
+        </div>
+        <div class="footerRight">
+          <div class="xpToast" id="xpToast" aria-live="polite"></div>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <!-- Create Modal -->
+  <div class="modal" id="createModal" aria-hidden="true">
+    <div class="modalBackdrop" data-close="1"></div>
+    <div class="modalCard small" role="dialog" aria-modal="true" aria-label="Criar conteúdo">
+      <div class="modalHeader">
+        <div class="modalTitle">
+          <div class="pill">Criar</div>
+          <h2>Novo vídeo (demo)</h2>
+          <div class="metaLine">Isto adiciona um item ao feed via <code>localStorage</code>.</div>
+        </div>
+        <div class="modalHeaderActions">
+          <button class="iconBtn" data-close="1" title="Fechar">✕</button>
+        </div>
+      </div>
+
+      <div class="modalBody column">
+        <label class="field">
+          <span>Título</span>
+          <input id="newTitle" placeholder="Ex: Como fazer um portefólio em 10 minutos" />
+        </label>
+        <label class="field">
+          <span>Categoria</span>
+          <select id="newGoal">
+            <option value="learn">Aprender</option>
+            <option value="fun">Entreter</option>
+            <option value="create">Criar</option>
+          </select>
+        </label>
+        <label class="field">
+          <span>Duração (segundos)</span>
+          <input id="newDuration" type="number" min="30" value="180" />
+        </label>
+        <label class="field">
+          <span>Tags (separadas por vírgula)</span>
+          <input id="newTags" placeholder="ex: carreira, design, css" />
+        </label>
+
+        <div class="rowEnd">
+          <button class="btn ghost" data-close="1">Cancelar</button>
+          <button class="btn" id="btnAddVideo">Adicionar</button>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <script src="app.js"></script>
+</body>
+</html>
