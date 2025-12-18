@@ -311,9 +311,16 @@ function getSavedVideos () {
 SEARCH BAR
 ============================================ */
 
-const searchBar = document.getElementById('search-text')
+function getActiveSearchInput(){
 
-searchBar.addEventListener("keydown", (e) => {
+  const inputs = document.querySelectorAll('#search-text')
+  return [...inputs].find(i => i.offsetParent !== null) || inputs[0]
+
+}
+
+const searchBar = getActiveSearchInput()
+
+searchBar?.addEventListener("keydown", (e) => {
   if (e.key === "Enter") {
     e.preventDefault()
     searchYTVideos()
@@ -322,7 +329,7 @@ searchBar.addEventListener("keydown", (e) => {
 
 async function searchYTVideos(value) {
 
-  const inputEl = document.getElementById('search-text')
+  const inputEl = getActiveSearchInput()
   const searchText = inputEl?.value || ""
 
   const query = searchText.trim() || value
