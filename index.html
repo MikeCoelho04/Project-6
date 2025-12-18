@@ -1,0 +1,295 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+
+  <!-- Meta tags -->
+
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+  <!-- Title & Favicon -->
+
+  <title>FocusTube</title>
+  <link rel="icon" tyoe="image/svg" href="images/favicon.svg">
+
+  <!-- Styles Sheets -->
+
+  <link rel="stylesheet" href="css/index.css">
+
+</head>
+<body>
+
+  <div class="app">
+
+    <!-- Side Bar -->
+
+    <aside class="sidebar">
+
+      <div class="logo-container">
+        <img src="images/logo.svg" alt="Focus Tube Logo">
+      </div>
+
+      <nav>
+
+        <button id="nav-home"class="nav-item active" data-page-name="home" data-action="random">
+          <span>🏠</span>
+          <span> Home</span>
+        </button>
+
+        <button class="nav-item" data-action="search" data-query="learning tutorial course explained">
+          <span>🎓</span>
+          <span>Learn</span>
+        </button>
+
+        <button class="nav-item" data-action="challenges" data-query="design challenge ui redesign">
+          <span>🎮</span>
+          <span>Challenges</span>
+        </button>
+
+        <button class="nav-item" data-action="progress" data-query="learning progress improvement explained">
+          <span>📊</span>
+          <span>Progress</span>
+        </button>
+
+        <button class="nav-item" data-page="saved">
+          <span>❤️</span>
+          <span>Saved</span>
+        </button>
+
+      </nav>
+
+      <div class="sidebar-bottom">
+
+        <div class="profile-card">
+
+          <span>MC</span>
+
+          <div class="profile-text">
+            <h2>Miguel</h2>
+            <span>Level 1 • 0 XP</span>
+          </div>
+
+        </div>
+
+      </div>
+
+    </aside>
+
+    <!-- Main -->
+
+    <main id="home">
+
+      <!-- Top Bar -->
+
+      <header class="top-bar">
+
+        <div class="search-bar-container">
+
+          <span class="search-icon">⌕</span>
+          <input type="text" name="" id="search-text" placeholder="Search for videos, tags, or creators...">
+          <kbd class="kbd">Ctrl</kbd>
+          <kbd class="kbd">K</kbd>
+
+        </div>
+
+        <div>
+          <button class="nav-item btn" data-action="random">🎲 Random</button>
+        </div>
+
+      </header>
+
+      <!-- Video Area -->
+
+      <section id="view">
+
+        <div class="view-header">
+
+          <div style="display: flex; flex-direction: column;">
+            <h4 class="view-title">Feed</h4>
+            <p class="view-description">Light content and quick discoveries. Use search to filter. (Tip: Ctrl+K)</p>
+          </div>
+
+        </div>
+
+        <div id="video-container">
+
+        </div>
+
+      </section>
+
+    </main>
+
+    <main id="saved">
+
+      <!-- Top Bar -->
+
+      <header class="top-bar">
+
+        <div class="search-bar-container">
+
+          <span class="search-icon">⌕</span>
+          <input type="text" name="" id="search-text" placeholder="Search for videos, tags, or creators...">
+          <kbd class="kbd">Ctrl</kbd>
+          <kbd class="kbd">K</kbd>
+
+        </div>
+
+      </header>
+
+     <!-- Video Area -->
+
+      <section id="view-saved-videos">
+
+        <div class="view-header">
+
+          <div>
+            <h4 class="view-title">❤️ Saved</h4>
+          </div>
+
+        </div>
+
+        <div id="saved-video-container">
+
+          <div class="saved-video-card-info"> 
+
+            <h3>You haven't saved any videos yet.</h3>
+
+            <p>Open a video and click on the ♡.</p>
+
+          </div>
+
+        </div>
+
+      </section>
+
+    </main>
+
+  </div>
+
+    <!-- 
+
+    POP UPS Not shown by default!
+
+    -->
+
+    <section id="video-modal">
+
+      <div class="video-modal-container">
+
+        <div class="video-modal-header">
+
+          <div class="video-modal-title">
+
+            <span class="pill">Entertain</span>
+            <h2 id="video-modal-title">Top 7 easter eggs de UI que ninguém nota</h2>
+            <p id="video-modal-channel">by Pixel Pop</p>
+
+          </div>
+
+          <div class="video-modal-actions">
+            <button id="save-video">♡</button>
+            <button onclick="closeVideoModal()">✕</button>
+          </div>
+
+        </div>
+
+        <div class="video-modal-body">
+
+          <div class="video-player">
+            <iframe
+              id="yt-iframe"
+              class="yt-iframe"
+              title="YouTube video player"
+              frameborder="0"
+              allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share"
+              allowfullscreen>
+            </iframe>
+          </div>
+
+          <div class="video-side-panel">
+
+            <div class="video-side-panel-tabs">
+
+              <button class="panel-tab active" data-panel-name="interactive">🧠 Interactive</button>
+
+              <button class="panel-tab" data-panel-name="notes">📝 Notes</button>
+
+              <button class="panel-tab" data-panel-name="discussion">💬 Discussion</button>
+
+            </div>
+
+            <div id="interactive-panel" data-name="interactive">
+
+            </div>
+
+            <div id="notes-panel" data-name="notes">
+
+              <div class="card-text">
+
+                <h3>Notes from your “brain”</h3>
+                <p>Notes are saved via video. You earn XP by saving notes (1x per session).</p>
+
+              </div>
+
+              <div class="hr"></div>
+
+              <div class="text-field">
+                <span>Notes</span>
+                <textarea name="" id="notes-textarea"></textarea>
+              </div>
+
+              <div class="notes-buttons">
+                <button class="btn ghost" id="notes-clear">Clear</button>
+                <button class="btn" id="notes-save">Save notes</button>
+              </div>
+
+            </div>
+
+            <div id="discussion-panel" data-name="discussion">
+
+              <div class="card-text">
+
+                <h3>Discussion in thread</h3>
+                <p>Mini-forum</p>
+
+              </div>
+              
+              <div class="hr"></div>
+
+              <div class="topic-input">
+                <input id="topic-input" type="text" placeholder="Create a topic... e.g., 'Does anyone have a practical example?'">
+                <button class="btn" id="topic-publish">Publish</button>
+              </div>
+
+              <div class="hr"></div>
+
+              <div id="topics-list" class="topics">
+                <p class="topics-empty">No topics yet. Create the first one.</p>
+              </div>
+
+            </div>
+
+          </div>
+
+        </div>
+
+        <div class="video-modal-footer">
+
+        </div>
+
+      </div>
+
+    </section>
+
+    <!-- Scripts -->
+
+    <!-- Font Awesome (For some icons used) -->
+
+  <script src="https://kit.fontawesome.com/b957a6364d.js" crossorigin="anonymous"></script>
+
+    <!-- Own Scripts -->
+
+  <script src="index.js" type="module"></script>
+
+</body>
+</html>
